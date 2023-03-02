@@ -1,18 +1,23 @@
+<head> 
+
 <% if @current_user %>
 <h1><%= @place["name"] %></h1>
 
 <h2>My Posts</h2>
+<div class="row">
 <% for post in @posts %>
+  <div class="col-md-3 col-sm-6">
   <h3><%= post["title"] %></h3>
   <h4><%= post["posted_on"] %></h4>
   <p><%= post["description"] %></p>
+  </div>
 <% end %>
-
+</div>
 <p>
-  <a href="/posts/new?place_id=<%= @place["id"] %>">New Post</a>
+  <a href="/posts/new?place_id=<%= @place["id"] %>" class="btn btn-primary">New Post</a>
 </p>
 
 <p>
-  <a href="/places">Back to All Places</a>
+  <a href="/places" class="btn btn-secondary">Back to All Places</a>
 </p>
 <% end %>
